@@ -1,3 +1,9 @@
+
+
+//пуфы что это не нейросеть ctr+лкм перейти:
+//https://drive.google.com/file/d/1NUjGX76DD-qlYvoY_7eDaD4Q3szeIxvk/view?usp=drive_link
+
+
 // * ЗАДАЧА 8 - Случайные числа
 
 let myNumbers = [5, 7, 3, 1, 2]
