@@ -1,3 +1,11 @@
+
+
+//таймлапс как я жоска туплю и как я не попадаю по клавиатуре:
+//https://drive.google.com/file/d/1mIVP4HyrWMfGPr64w290QLgNH-6SlYxs/view
+
+
+
+
 const mouseArea = document.getElementById('mouseArea');
 const xSpan = document.getElementById('x');
 const ySpan = document.getElementById('y');
