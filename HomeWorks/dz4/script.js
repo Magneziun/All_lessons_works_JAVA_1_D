@@ -86,8 +86,7 @@ function numberToWords(num)
 
     if (num < 10 || num > 99)
     {
-        console.log(`[ERROR] введите нормальное число `)
-        return 02;
+        console.log(`[ERROR] введите нормальное число `);
     }
     if (num >= 10 && num <= 19)
     {

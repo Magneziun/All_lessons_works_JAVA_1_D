@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkkhaki;
+    padding: 50px 100px;
+}
+
+hr {
+    margin: 20px 0px;
+}
+
+.block {
+    border: 4px solid black;
+    padding: 20px;
+}
+
+.btn {
+    padding: 10px 30px;
+    font-size: 22px;
+    margin: 15px;
+}
