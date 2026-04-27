@@ -1,29 +1,33 @@
 let mode;
 
-function setMode(newMode) {
-    mode = newMode;
-}
+const clock = document.getElementById('clock');
+
+document.getElementById('btnDatetime').addEventListener('click', () => {
+    mode = 'datetime';
+});
+
+document.getElementById('btnTime').addEventListener('click', () => {
+    mode = 'time';
+});
+
+document.getElementById('btnDate').addEventListener('click', () => {
+    mode = 'date';
+});
 
 function updateClock() {
     const now = new Date();
 
-    let time = now.toLocaleTimeString();
-    let date = now.toLocaleDateString();
-
-    let display = '';
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString();
 
     if (mode === 'datetime') {
-        display = date + ' ' + time;
+        clock.textContent = date + ' ' + time;
     } else if (mode === 'time') {
-        display = time;
-    } else if (mode === 'date') {
-        display = date;
+        clock.textContent = time;
+    } else {
+        clock.textContent = date;
     }
-
-    document.getElementById('clock').textContent = display;
 }
 
-setInterval(updateClock, 1000); 
-
-//я не понимаю почему коряво работает
-
+setInterval(updateClock, 1000);
+updateClock();
