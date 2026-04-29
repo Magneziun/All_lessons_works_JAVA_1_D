@@ -5,7 +5,7 @@ btn.onclick = function() {
     modal.style.display = 'block';
 };
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         modal.style.display = 'none';
     }
