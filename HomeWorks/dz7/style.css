@@ -1,20 +1,25 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
-body{
+
+body {
     background-color: #1e1e1e;
 }
-h{
+
+h {
     color: #e16666;
 }
-h1{
+
+h1 {
     color: #e16666;
 }
-hr{
+
+hr {
     border-color: #e16666;
     margin: 30px;
 }
-#scroll-bnt{
+
+#scroll-bnt {
     font-size: 2rem;
     background-color: #e166665f;
     color: #ffffff;
@@ -28,8 +33,9 @@ hr{
     padding: 6px;
     cursor: pointer;
     display: none;
-    z-index: 1000; 
+    z-index: 1000;
 }
+
 .field {
     margin: 20px;
     position: relative;
@@ -45,7 +51,7 @@ hr{
     height: 100px;
     background: #ffffff;
     border-radius: 50%;
-    transition: left 0.2s , top 0.2s ;
+    transition: left 0.2s, top 0.2s;
     left: 450px;
     top: 300px;
     will-change: left, top;
@@ -59,36 +65,34 @@ hr{
     border-radius: 50%;
 }
 
-.hand {
+
+.clock .hand {
     position: absolute;
-    background: #1e2a2e;
-    height: 4px;
     left: 50%;
     top: 50%;
-    transform-origin: left center;
+    margin: 0;
+    padding: 0;
     border: none;
+    transform-origin: left center; 
 }
 
-.hour{
+.hour {
     width: 68px;
     height: 6px;
     background: #1e2a2e;
-    margin-top: -4px;
-    transform-origin: 0% 50%;
+    margin-top: -3px;  
 }
 
-.minute{
+.minute {
     width: 100px;
     height: 4px;
     background: #2c3e3f;
-    margin-top: -2px;
-    transform-origin: 0% 50%;
+    margin-top: -2px; 
 }
 
-.second{
+.second {
     width: 110px;
     height: 2px;
     background: #d64545;
-    margin-top: -1px;
-    transform-origin: 0% 50%;
+    margin-top: -1px;  
 }
