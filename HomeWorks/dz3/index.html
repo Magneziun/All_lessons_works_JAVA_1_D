@@ -1,11 +1,397 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Dagirov M П320</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #e9edf2;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #0f1217;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 1px solid #2a2f3a;
+        }
+
+        /* header — тёмный градиент с акцентным цветом */
+        .hero {
+            background: linear-gradient(135deg, #0e1117 0%, #1a1f2a 100%);
+            border-bottom: 3px solid #f8634d;
+            color: white;
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 80%;
+            color: #d1d9e8;
+        }
+
+        /* оглавление */
+        .toc {
+            background: #12161e;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #2a2f3a;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .toc a {
+            color: #fbc4bb;
+            text-decoration: none;
+            transition: 0.2s;
+            border-bottom: 1px dashed transparent;
+        }
+
+        .toc a:hover {
+            color: #f8634d;
+            border-bottom-color: #f8634d;
+        }
+
+        /* основной контент */
+        .content {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-left: 6px solid #f8634d;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            color: #f0f3f8;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pattern-card {
+            background: #141a24;
+            border-radius: 1.25rem;
+            border: 1px solid #2a2f3c;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .pattern-card:hover {
+            border-color: #f8634d;
+            box-shadow: 0 12px 20px -12px rgba(248, 99, 77, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .pattern-header {
+            background: #10161f;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #252c38;
+        }
+
+        .pattern-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fbc4bb;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .pattern-code {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.75rem;
+            background: #2a2f3c;
+            padding: 0.2rem 0.4rem;
+            border-radius: 8px;
+            color: #fcd4ce;
+            font-weight: 500;
+        }
+
+        .pattern-detail {
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #1e232e;
+            font-size: 0.95rem;
+        }
+
+        .pattern-detail:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 700;
+            color: #faa699;
+            display: inline-block;
+            min-width: 95px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .detail-text {
+            color: #cdd9f4;
+        }
+
+        .inline-code {
+            background: #262e3c;
+            padding: 0.2rem 0.3rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #fbc4bb;
+            border: 1px solid #3a4252;
+        }
+
+        .scenario-block, .extend-block, .justify-block {
+            background: #10161f;
+            border-left: 4px solid #f8634d;
+            padding: 1.25rem 1.8rem;
+            margin: 1.5rem 0;
+            border-radius: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .scenario-block h3, .extend-block h3, .justify-block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #fbc4bb;
+        }
+
+        ul, .pattern-list {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            margin: 0.4rem 0;
+            color: #cfdef5;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #2f3745, transparent);
+        }
+
+        footer {
+            background: #0b0f15;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.8rem;
+            color: #9aa9c1;
+            border-top: 1px solid #252c38;
+        }
+
+        a {
+            color: #faa699;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #f8634d;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 720px) {
+            .content {
+                padding: 1rem;
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .pattern-grid {
+                grid-template-columns: 1fr;
+            }
+            .label {
+                min-width: 80px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <script src="script.js"></script>
+<div class="container">
+    <div class="hero">
+        <h> Дагиров М. ПП320</h>
+        <h1> Паттерны проектирования<br>«Умный город»</h1>
+        <p>Архитектура на основе порождающих, структурных и поведенческих паттернов. Гибкость, масштабируемость и соответствие SOLID.</p>
+    </div>
+    <div class="toc">
+        <a href="#creational"> Порождающие</a>
+        <a href="#structural"> Структурные</a>
+        <a href="#behavioral"> Поведенческие</a>
+        <a href="#scenario"> Сценарий «Пожар»</a>
+        <a href="#extend"> Расширяемость</a>
+        <a href="#justify"> Обоснование выбора</a>
+    </div>
+    <div class="content">
+
+        <section id="creational">
+            <h2 class="section-title">4. Порождающие паттерны</h2>
+            <div class="pattern-grid">
+                
+                <div class="pattern-card">
+                    <div class="pattern-header"><h3>4.1 Singleton · Одиночка</h3></div>
+                    <div class="pattern-detail"><span class="label"> Где:</span> <span class="detail-text">Logger, ConfigManager</span></div>
+                    <div class="pattern-detail"><span class="label"> Зачем:</span> <span class="detail-text">Единственный экземпляр глобальных сервисов (логирование, конфигурация). Избегает конфликтов при обращении из разных частей системы.</span></div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header"><h3>4.2 Factory Method · Фабричный метод</h3></div>
+                    <div class="pattern-detail"><span class="label"> Где:</span> <span class="detail-text">DeviceFactory, DroneFactory, CameraFactory</span></div>
+                    <div class="pattern-detail"><span class="label"> Зачем:</span> <span class="detail-text">Создание устройств (дрон, камера) без привязки к конкретным классам. Легко добавлять новые типы устройств.</span></div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header"><h3>4.3 Abstract Factory · Абстрактная фабрика</h3></div>
+                    <div class="pattern-detail"><span class="label"> Где:</span> <span class="detail-text">ICityInfrastructureFactory, CityAFactory</span></div>
+                    <div class="pattern-detail"><span class="label"> Зачем:</span> <span class="detail-text">Создание семейств связанных объектов (транспорт + контроллер + сенсор) для разных регионов. Гарантирует совместимость.</span></div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header"><h3>4.4 Builder · Строитель</h3></div>
+                    <div class="pattern-detail"><span class="label"> Где:</span> <span class="detail-text">BuildingBuilder</span></div>
+                    <div class="pattern-detail"><span class="label"> Зачем:</span> <span class="detail-text">Пошаговое конструирование сложного объекта (здание с множеством параметров). Отделяет сборку от представления.</span></div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header"><h3>4.5 Prototype · Прототип</h3></div>
+                    <div class="pattern-detail"><span class="label"> Где:</span> <span class="detail-text">DevicePrototype, ConfigurableDevice</span></div>
+                    <div class="pattern-detail"><span class="label"> Зачем:</span> <span class="detail-text">Клонирование конфигураций устройств для быстрого создания похожих объектов без повторной инициализации.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="structural">
+            <h2 class="section-title">5. Структурные паттерны</h2>
+            <div class="pattern-grid">
+                <div class="pattern-card"><div class="pattern-header"><h3>5.1 Adapter · Адаптер</h3></div><div class="pattern-detail"><span class="label"> Где:</span> CameraAdapter</div><div class="pattern-detail"><span class="label"> Зачем:</span> Интеграция старого API камеры (OldCamera) в новый интерфейс INewCamera. Позволяет использовать устаревшее оборудование.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.2 Bridge · Мост</h3></div><div class="pattern-detail"><span class="label"> Где:</span> DeviceBridge, SmartLight, LocalControl, RemoteControl</div><div class="pattern-detail"><span class="label"> Зачем:</span> Разделяет абстракцию устройства и способ управления. Независимое развитие типов устройств и методов управления.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.3 Composite · Компоновщик</h3></div><div class="pattern-detail"><span class="label"> Где:</span> ICityComponent, City, District, SimpleBuilding</div><div class="pattern-detail"><span class="label"> Зачем:</span> Иерархия «город → район → здание → устройство». Единообразная работа с отдельными объектами и группами.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.4 Decorator · Декоратор</h3></div><div class="pattern-detail"><span class="label"> Где:</span> ServiceDecorator, LoggingDecorator</div><div class="pattern-detail"><span class="label"> Зачем:</span> Динамическое добавление поведения (логирование, кэширование, безопасность) без изменения кода. OCP.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.5 Facade · Фасад</h3></div><div class="pattern-detail"><span class="label"> Где:</span> CityFacade</div><div class="pattern-detail"><span class="label"> Зачем:</span> Простой унифицированный интерфейс для сложной подсистемы управления городом. Скрывает детали.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.6 Flyweight · Приспособленец</h3></div><div class="pattern-detail"><span class="label"> Где:</span> SensorType, SensorTypeFactory</div><div class="pattern-detail"><span class="label"> Зачем:</span> Переиспользование общих данных (типы сенсоров) для экономии памяти при тысячах устройств.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>5.7 Proxy · Заместитель</h3></div><div class="pattern-detail"><span class="label"> Где:</span> DeviceProxy</div><div class="pattern-detail"><span class="label"> Зачем:</span> Контроль доступа к устройству в зависимости от роли пользователя, ленивая загрузка, удалённые вызовы.</div></div>
+            </div>
+        </section>
+
+
+        <section id="behavioral">
+            <h2 class="section-title">6. Поведенческие паттерны</h2>
+            <div class="pattern-grid">
+                <div class="pattern-card"><div class="pattern-header"><h3>6.1 Chain of Responsibility</h3></div><div class="pattern-detail"><span class="label"> Где:</span> EventHandler, ValidationHandler, SecurityHandler</div><div class="pattern-detail"><span class="label"> Зачем:</span> Последовательная обработка событий (валидация → безопасность → логика). Гибкость порядка.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.2 Command · Команда</h3></div><div class="pattern-detail"><span class="label"> Где:</span> ICommand, TurnOnLightCommand, SendDroneCommand</div><div class="pattern-detail"><span class="label"> Зачем:</span> Инкапсуляция запросов в объекты. Очередь, логирование, отмена (undo).</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.3 Interpreter · Интерпретатор</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IExpression, GreaterThanExpression, Context</div><div class="pattern-detail"><span class="label"> Зачем:</span> Интерпретация DSL для правил («температура > 30 → охлаждение»). Пользовательские сценарии.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.4 Iterator · Итератор</h3></div><div class="pattern-detail"><span class="label"> Где:</span> DeviceCollection</div><div class="pattern-detail"><span class="label"> Зачем:</span> Единообразный обход коллекции устройств без раскрытия внутренней структуры.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.5 Mediator · Посредник</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IMediator, EventMediator</div><div class="pattern-detail"><span class="label"> Зачем:</span> Централизованная координация между модулями. Снижает связанность.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.6 Memento · Хранитель</h3></div><div class="pattern-detail"><span class="label"> Где:</span> DeviceMemento, DeviceOriginator</div><div class="pattern-detail"><span class="label"> Зачем:</span> Сохранение и восстановление состояния устройства (откат перед опасной операцией).</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.7 Observer · Наблюдатель</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IObserver, SecurityService, EventPublisher</div><div class="pattern-detail"><span class="label"> Зачем:</span> Реакция на события (датчик движения → служба безопасности). Слабая связанность.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.8 State · Состояние</h3></div><div class="pattern-detail"><span class="label"> Где:</span> DeviceState, OnState, OffState, DeviceContext</div><div class="pattern-detail"><span class="label"> Зачем:</span> Поведение в зависимости от состояния (вкл/выкл/ошибка). Уход от switch.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.9 Strategy · Стратегия</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IRoutingStrategy, FastestRoute, ShortestRoute, Navigator</div><div class="pattern-detail"><span class="label"> Зачем:</span> Выбор алгоритма маршрутизации (быстрый/короткий). Легкая замена.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.10 Template Method</h3></div><div class="pattern-detail"><span class="label"> Где:</span> EventProcessor, FireEventProcessor</div><div class="pattern-detail"><span class="label"> Зачем:</span> Скелет алгоритма обработки события (валидация → обработка → логирование) с переопределением шагов.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.11 Visitor · Посетитель</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IVisitor, AuditVisitor, IVisitable, VisitableDrone</div><div class="pattern-detail"><span class="label"> Зачем:</span> Операции над объектами (аудит, аналитика) без изменения классов. Добавление новых операций без модификации иерархии.</div></div>
+                <div class="pattern-card"><div class="pattern-header"><h3>6.12 Null Object · Пустой объект</h3></div><div class="pattern-detail"><span class="label"> Где:</span> IHandler, NullHandler</div><div class="pattern-detail"><span class="label"> Зачем:</span> Замена null на объект с нейтральным поведением. Избавление от проверок на null.</div></div>
+            </div>
+        </section>
+
+        <section id="scenario">
+            <h2 class="section-title">7. Пример сценария работы: событие «Пожар»</h2>
+            <div class="scenario-block">
+                <h3> Как система реагирует на пожар (интеграция паттернов)</h3>
+                <ul>
+                    <li><strong>Генерация события:</strong> Датчик дыма (или внешняя система) создаёт событие <span class="inline-code">"fire"</span>.</li>
+                    <li><strong>Chain of Responsibility:</strong> Событие проходит через <span class="inline-code">ValidationHandler</span> → <span class="inline-code">SecurityHandler</span>. Обработчик безопасности запускает команды.</li>
+                    <li><strong>Command:</strong> Выполняются <span class="inline-code">SendDroneCommand</span> (дрон для разведки) и <span class="inline-code">TurnOnLightCommand</span> (аварийное освещение).</li>
+                    <li><strong>Observer:</strong> <span class="inline-code">EventPublisher</span> уведомляет подписчиков (<span class="inline-code">SecurityService</span> → оповещение жителей).</li>
+                    <li><strong>Template Method:</strong> <span class="inline-code">FireEventProcessor</span> переопределяет шаг <span class="inline-code">Handle()</span>, добавляя вызов пожарных и эвакуацию, оставаясь в едином шаблоне.</li>
+                    <li><strong>Strategy:</strong> <span class="inline-code">Navigator</span> со стратегией <span class="inline-code">FastestRoute</span> прокладывает путь для пожарной машины.</li>
+                    <li><strong>State:</strong> Устройства (дрон, свет) переходят в <span class="inline-code">OnState</span> через <span class="inline-code">DeviceContext</span>.</li>
+                    <li><strong>Memento:</strong> Перед критической операцией состояние сохраняется через <span class="inline-code">DeviceOriginator</span> для возможного отката.</li>
+                    <li><strong>Visitor:</strong> После ликвидации пожара <span class="inline-code">AuditVisitor</span> собирает данные со всех задействованных устройств для отчёта.</li>
+                </ul>
+                <p>Такой подход обеспечивает слабую связанность, гибкость и расширяемость без изменения ядра системы.</p>
+            </div>
+        </section>
+
+        <section id="extend">
+            <h2 class="section-title">8. Расширяемость архитектуры</h2>
+            <div class="extend-block">
+                <ul>
+                    <li><span class="inline-code"> Новый тип устройства</span> → создать класс, реализующий <span class="inline-code">IDevice</span>, фабрику <span class="inline-code">DeviceFactory</span>, при необходимости адаптер.</li>
+                    <li><span class="inline-code"> Новый алгоритм обработки</span> → новая стратегия <span class="inline-code">IRoutingStrategy</span> или новый обработчик в цепочку обязанностей.</li>
+                    <li><span class="inline-code"> Новый способ управления</span> → новая реализация <span class="inline-code">IControlMode</span> через Bridge.</li>
+                    <li><span class="inline-code"> Новый сервис</span> → реализовать <span class="inline-code">IService</span> и обернуть декораторами (логирование, кэш).</li>
+                    <li><span class="inline-code"> Новая операция над объектами</span> → добавить нового посетителя (<span class="inline-code">IVisitor</span>) без изменения иерархии.</li>
+                </ul>
+                <p>Все интерфейсы и абстракции размещены в соответствующих пространствах имён, упрощая поиск и интеграцию.</p>
+            </div>
+        </section>
+
+        <section id="justify">
+            <h2 class="section-title">9. Обоснование выбора паттернов и избегание избыточной сложности</h2>
+            <div class="justify-block">
+                <p>При проектировании соблюдены принципы SOLID и здравый смысл. Паттерны применены только там, где решают конкретную проблему:</p>
+                <ul>
+                    <li><strong>Singleton</strong> — для глобальных сервисов (логгер, конфиг), где единственность критична.</li>
+                    <li><strong>Factory Method / Abstract Factory</strong> — создание устройств и семейств для разных регионов (требование ТЗ).</li>
+                    <li><strong>Builder</strong> — для зданий с множеством опциональных параметров, избегаем перегруженных конструкторов.</li>
+                    <li><strong>Prototype</strong> — клонирование конфигураций, ускоряет развёртывание устройств.</li>
+                    <li><strong>Adapter</strong> — интеграция старого оборудования без переписывания кода.</li>
+                    <li><strong>Bridge</strong> — разделение управления и устройства, предотвращает взрыв классов.</li>
+                    <li><strong>Composite</strong> — иерархия городских объектов, единообразная работа.</li>
+                    <li><strong>Decorator</strong> — сквозная функциональность (логирование) без засорения основных классов.</li>
+                    <li><strong>Facade</strong> — упрощает клиентский код.</li>
+                    <li><strong>Flyweight</strong> — экономия памяти для тысяч сенсоров.</li>
+                    <li><strong>Proxy</strong> — разграничение доступа (требование ТЗ).</li>
+                    <li><strong>Chain of Responsibility</strong> — гибкая обработка событий с возможностью изменения порядка.</li>
+                    <li><strong>Command</strong> — отложенное выполнение и откат (требование ТЗ).</li>
+                    <li><strong>Interpreter</strong> — поддержка пользовательских сценариев.</li>
+                    <li><strong>Iterator / Mediator / Memento</strong> — обход коллекций, снижение связанности, сохранение состояний.</li>
+                    <li><strong>Observer</strong> — реактивная архитектура, слабая связанность.</li>
+                    <li><strong>State</strong> — управление состояниями устройств без switch.</li>
+                    <li><strong>Strategy</strong> — смена алгоритмов маршрутизации.</li>
+                    <li><strong>Template Method</strong> — унификация pipeline обработки.</li>
+                    <li><strong>Visitor</strong> — добавление операций (аудит) без изменения иерархии.</li>
+                    <li><strong>Null Object</strong> — безопасная работа с опциональными компонентами.</li>
+                </ul>
+                <p>Там, где достаточно простого конструктора или DI-контейнер избыточен, паттерны не навязывались искусственно. Все решения продиктованы конкретными требованиями к гибкости, сопровождаемости и производительности.</p>
+            </div>
+        </section>
+        <hr>
+        <p style="font-size: 0.85rem; color: #9aaec7; text-align: center;">Отчет в HTML потому-что дали TЗ в таком же формате, думаю этого будет достаточно</p>
 </body>
 </html>
