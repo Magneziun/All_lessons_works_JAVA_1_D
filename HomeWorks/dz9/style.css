@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+form {
+    width: 300px;
+    padding: 20px;
+}
+input, button {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+label {
+    display: block;
+}
+.checkboxes {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+.checkboxes label {
+    align-items: center;
+    gap: 4px;
+}
+.checkboxes input {
+    width: auto;
+    margin: 0;
+}
