@@ -1,0 +1,71 @@
+*{
+    border-radius: 5px;
+    border-style: none;
+
+    font-family: Arial;
+}
+body{
+    background-color: #545454;
+    color: rgb(255, 255, 255);
+}
+.container {
+    position: relative;
+}
+
+.controls {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.controls input,
+.controls textarea,
+.controls button {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #653939;
+    color: rgb(255, 255, 255);
+}
+
+.search-tag input,
+.search-tag button {
+    display: inline-block;
+    margin-right: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.news-feed {
+    position: relative;
+}
+
+.news-item {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #5d1f1f;
+}
+
+.news-title {
+    font-weight: bold;
+}
+
+.news-date {
+    font-size: 0.9em;
+}
+
+.news-tags {
+    font-style: italic;
+}
+
+.news-item button {
+    margin-top: 5px;
+}
+
+.delete-btn{
+    color: #ffffff;
+    background-color: brown;
+}
+
+h{
+    color: aquamarine;
+}

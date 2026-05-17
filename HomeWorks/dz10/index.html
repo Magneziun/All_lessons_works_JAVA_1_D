@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h>Задание 3</h>
+    <div class="container">
+        <h1>Новостная лента</h1>
+        <div class="controls">
+            <h3>Добавить новость</h3>
+            <input type="text" id="titleInput" placeholder="Заголовок">
+            <textarea id="textInput" placeholder="Текст новости"></textarea>
+            <input type="text" id="tagsInput" placeholder="Теги (через запятую)">
+            <button id="addBtn">Добавить новость</button>
+        </div>
+    <h>Задание 4</h>
+        <div class="controls">
+            <h3>Управление</h3>
+            <button id="sortBtn">Сортировать по дате (новые > старые)</button>
+            <div class="search-tag">
+                <input type="text" id="searchTagInput" placeholder="Введите тег для поиска">
+                <button id="searchBtn">Найти по тегу</button>
+                <button id="resetBtn">Очистить поиск</button>
+            </div>
+        </div>
+
+        <div id="newsFeed" class="news-feed"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
