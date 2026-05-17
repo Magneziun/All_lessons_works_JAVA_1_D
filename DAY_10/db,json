@@ -1,0 +1,22 @@
+{
+    "people": [
+        {
+        "id": 1,
+        "login": "denis",
+        "password" : "676767",
+        "email" : "YY@mial.com"
+        },
+        {
+        "id": 2,
+        "login": "Abobis",
+        "password" : "676767",
+        "email" : "YY@mial.com"
+        },
+        {
+        "id": 3,
+        "login": "Peppa",
+        "password" : "676767",
+        "email" : "YYY@mial.com"
+        }
+    ]
+}
