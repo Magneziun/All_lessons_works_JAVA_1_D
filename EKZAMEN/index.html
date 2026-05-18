@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Список задач</h1>
+
+        <div class="card">
+            <h2>Запланировать задачу</h2>
+
+            <form id="taskForm">
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Название задачи"
+                    required>
+
+                <textarea
+                    id="description"
+                    placeholder="Описание задачи"
+                    required>
+                </textarea>
+
+                <label for="date">Срок выполнения задачи:</label>
+                <input
+                    type="date"
+                    id="date"
+                    required>
+
+                <button type="submit">Сохранить задачу</button>
+            </form>
+        </div>
+
+
+        <div class="card">
+            <h2>Показать задачи</h2>
+
+            <label for="searchDate">Показать задачи на дату:</label>
+            <input type="date" id="searchDate">
+
+            <button id="showTasksBtn">Список задач</button>
+        </div>
+
+        <div class="tasks-section">
+            <h2 id="tasksTitle">Список задач</h2>
+
+            <div id="tasksList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
