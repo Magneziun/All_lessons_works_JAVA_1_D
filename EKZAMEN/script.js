@@ -58,14 +58,13 @@ function showTasks() {
         `;
         return;
     }
-
     filteredTasks.forEach(task => {
         const taskElement = document.createElement('div');
         taskElement.classList.add('task-item');
         taskElement.innerHTML = `
             <h3>${task.title}</h3>
-            <p>${task.description || '—'}</p>
-        `;
+            <p>${task.description || '—'}</p>  
+        `; //ахаахах сиксевен XD
         tasksList.append(taskElement);
     });
 }
